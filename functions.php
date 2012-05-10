@@ -128,6 +128,7 @@ function z_taxon(
     $sep = ', ',
     $after = ''
 ) {
+    global $post;
     $terms = get_the_terms($post->ID, $taxon);
     $output = '';
     if($terms) {
