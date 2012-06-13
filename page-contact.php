@@ -199,12 +199,11 @@ if(!empty($_POST)) {
     if(count($error) == 0) {
 
         // Put message together and send
-        $email_address = empty($email) ? EMAIL_FROM : $email;
         $email_body = "Name: $name\n\n";
         $email_body .= "Email: $email\n\n";
         $email_body .= "Subject: $subject\n\n";
         $email_body .= "Message:\n\n$message";
-        $email_headers = "From: $name  <$email>";
+        $email_headers = "From: $name  <$email>"; // alternatively EMAIL_FROM
         $email_headers .= EMAIL_CC != '' ? "\nCc:" . EMAIL_CC : '';
         $email_headers .= EMAIL_BCC != '' ? "\nBcc:" . EMAIL_BCC : '';
         //$email_headers .= "\nMIME-Version: 1.0"; // HTML format
