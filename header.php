@@ -24,8 +24,8 @@
 <?php /* <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> */ ?>
 
 <?php /* <link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/style.css" /> */ ?>
-<?php /* <link rel="alternate" type="application/atom+xml" href="<?php bloginfo('atom_url'); ?>" /> */ ?>
-<?php /* <link rel="alternate" type="application/rss+xml" href="<?php bloginfo('rss2_url'); ?>" /> */ ?>
+<?php /* <link rel="alternate" type="application/atom+xml" href="<?php bloginfo('atom_url'); ?>" title="Atom Feed" /> */ ?>
+<?php /* <link rel="alternate" type="application/rss+xml" href="<?php bloginfo('rss2_url'); ?>" title="RSS Feed" /> */ ?>
 <?php /* <link rel="shortcut icon" href="<?php bloginfo('stylesheet_directory'); ?>/icons/favicon.ico" /> */ ?>
 <?php /* <link rel="apple-touch-icon-precomposed" href="<?php bloginfo('stylesheet_directory'); ?>/icons/touch.png" /> */ ?>
 
