@@ -189,11 +189,19 @@ function z_copyright() {
 }
 
 /**
- * Function to return featured image URL
+ * Function to return image URL
+ *
+ * If no ID is specified and featured images are supported, this will default
+ * to the featured image. The second optional parameter sets the image size.
  */
-function z_thumbnail_url() {
-    $image = wp_get_attachment_image_src(get_post_thumbnail_id(), 'full');
-    return $image[0];
+function z_image_url($id = false, $size = 'full') {
+    if(!$id && has_post_thumbnail()) {
+        $id = get_post_thumbnail_id();
+    }
+    if($id) {
+        $image = wp_get_attachment_image_src($id, $size);
+        return $image[0];
+    }
 }
 
 /**

@@ -19,7 +19,7 @@
         <h1><?php the_title(); ?></h1>
         <?php
 
-            // Display featured image (use z_thumbnail_url() to get URL)
+            // Display featured image (use z_image_url() to get URL)
             if(has_post_thumbnail()) {
                 the_post_thumbnail('thumbnail');
             }

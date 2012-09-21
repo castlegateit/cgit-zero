@@ -62,7 +62,7 @@
             <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
             <?php
 
-                // Display featured image (use z_thumbnail_url() to get URL)
+                // Display featured image (use z_image_url() to get URL)
                 if(has_post_thumbnail()) {
                     the_post_thumbnail('thumbnail');
                 }
