@@ -115,11 +115,11 @@ function z_remove_headers($string) {
  * Clean POST data and assign to named variables
  */
 foreach($fields as $key => $value) {
-    $data = $_POST[$value];
+    $data = isset($_POST[$value]) ? $_POST[$value] : '';
     //$data = z_remove_headers($data); // alternative to spam check below
     $data = trim($data);
     $data = stripslashes($data); // prevent escaped quotes and slashes
-    $$value = isset($_POST[$value]) ? $data : '';
+    $$value = $data;
 }
 
 /**
