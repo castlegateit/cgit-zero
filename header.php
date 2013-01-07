@@ -40,9 +40,9 @@
 <div class="header">
 
 <?php if(is_home()): ?>
-    <h1 class="site-title"><a href="<?php bloginfo('url'); ?>/"><?php bloginfo('name'); ?></a></h1>
+    <h1 class="title"><a href="<?php bloginfo('url'); ?>/"><?php bloginfo('name'); ?></a></h1>
 <?php else: ?>
-    <div class="site-title"><a href="<?php bloginfo('url'); ?>/"><?php bloginfo('name'); ?></a></div>
+    <div class="title"><a href="<?php bloginfo('url'); ?>/"><?php bloginfo('name'); ?></a></div>
 <?php endif; ?>
 
     <div class="nav">

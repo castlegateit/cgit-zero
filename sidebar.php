@@ -19,9 +19,9 @@
         <div class="section">
             <form action="<?php bloginfo('url'); ?>/" method="get">
                 <p>
-                    <label for="s">Search</label>
-                    <input type="text" name="s" id="s" />
-                    <input type="submit" value="Search" />
+                    <label for="s" class="label-text">Search</label>
+                    <input type="text" name="s" id="s" class="input-text" />
+                    <input type="submit" value="Search" class="input-button" />
                 </p>
             </form>
         </div>
