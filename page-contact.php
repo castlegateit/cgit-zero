@@ -55,16 +55,6 @@ $error = array();
 $done = false;
 
 /**
- * Allow JavaScript validation
- *
- * If POST data has been received, add the "novalidate" class to the form to
- * notify a JavaScript validator that the form is being validated by PHP and
- * should be ignored. For HTML5 forms, make this a novalidate attribute
- * instead of a class.
- */
-$novalidate = empty($_POST) ? '' : 'novalidate';
-
-/**
  * Function to print input class name on validation
  */
 function z_input_valid($field_name) {
@@ -246,7 +236,7 @@ if(!empty($_POST)) {
         <p class="error">Some fields contain errors. Please correct them and try again.</p>
 <?php endif; ?>
 
-        <form action="<?php the_permalink(); ?>" method="post" class="<?php echo $novalidate; ?>">
+        <form action="<?php the_permalink(); ?>" method="post">
 
             <p>
                 <label for="username" class="label-text">Name</label>
