@@ -188,11 +188,15 @@ if(!empty($_POST)) {
      */
     if(count($error) == 0) {
 
+        // Sender IP
+        $sender = $_SERVER['REMOTE_ADDR'];
+
         // Put message together and send
         $email_body = "Name: $username\n\n";
         $email_body .= "Email: $email\n\n";
         $email_body .= "Subject: $subject\n\n";
         $email_body .= "Message:\n\n$message";
+        $email_body .= "\n\nSender IP: $sender";
         $email_headers = "From: $username  <$email>"; // alternatively EMAIL_FROM
         $email_headers .= EMAIL_CC != '' ? "\nCc:" . EMAIL_CC : '';
         $email_headers .= EMAIL_BCC != '' ? "\nBcc:" . EMAIL_BCC : '';
@@ -203,7 +207,7 @@ if(!empty($_POST)) {
         // Write to log file
         if(defined('EMAIL_LOG') && function_exists('fputcsv')) {
             $log = fopen(EMAIL_LOG, 'a');
-            $row = array(date('Y-m-d H:i'), $username, $email, $subject, $message);
+            $row = array(date('Y-m-d H:i'), $username, $email, $subject, $message, $sender);
             fputcsv($log, $row);
         }
 
