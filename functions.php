@@ -96,24 +96,6 @@ function z_edit_title($title, $sep, $seplocation) {
 add_filter('wp_title', 'z_edit_title', 10, 3);
 
 /**
- * Edit excerpt ellipsis
- */
-function z_edit_excerpt_more($more) {
-    return ' &hellip;';
-}
-
-add_filter('excerpt_more', 'z_edit_excerpt_more');
-
-/**
- * Edit excerpt length
- */
-function z_edit_excerpt_length($len) {
-    return 40;
-}
-
-add_filter('excerpt_length', 'z_edit_excerpt_length');
-
-/**
  * Function to return a post taxonomy
  *
  * This returns a list of categories, tags, or other taxonomy terms for a
