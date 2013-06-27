@@ -18,9 +18,25 @@
 
 <meta charset="<?php bloginfo('charset'); ?>" />
 
-<title><?php wp_title('|', true, 'right'); ?></title>
+<title><?php
 
-<meta name="description" content="<?php bloginfo('description'); ?>" />
+    if (function_exists('get_field') && get_field('seo_title')) {
+        the_field('seo_title');
+    } else {
+        wp_title('|', true, 'right');
+    }
+
+?></title>
+
+<meta name="description" content="<?php
+
+    if (function_exists('get_field') && get_field('seo_description')) {
+        the_field('seo_description');
+    } else {
+        bloginfo('description');
+    }
+
+?>" />
 <?php /* <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> */ ?>
 
 <?php /* <link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/style.css" /> */ ?>
@@ -39,11 +55,15 @@
 
 <div class="header">
 
-<?php if(is_home()): ?>
-    <h1 class="title"><a href="<?php bloginfo('url'); ?>/"><?php bloginfo('name'); ?></a></h1>
-<?php else: ?>
-    <div class="title"><a href="<?php bloginfo('url'); ?>/"><?php bloginfo('name'); ?></a></div>
-<?php endif; ?>
+    <h1 class="title"><a href="<?php bloginfo('url'); ?>/"><?php
+
+        if (function_exists('get_field') && get_field('seo_heading')) {
+            the_field('seo_heading');
+        } else {
+            bloginfo('name');
+        }
+
+    ?></a></h1>
 
     <div class="nav">
         <?php
