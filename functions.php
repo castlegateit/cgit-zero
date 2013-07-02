@@ -102,18 +102,39 @@ add_filter('wp_title', 'z_edit_title', 10, 3);
  * particular post, similar to the_category() or the_tags() but without the
  * unpleasant rel attributes. By default, it lists the "category" taxonomy;
  * use the "post_tag" taxonomy to list tags. This must be used within the
- * loop.
+ * loop. The exclude argument accepts a single term ID, a comma-separated list
+ * of IDs or an array of an IDs to exclude from the results.
  */
 function z_taxon(
     $taxon = 'category',
     $before = '',
     $sep = ', ',
-    $after = ''
+    $after = '',
+    $exclude = false
 ) {
+
     global $post;
     $terms = get_the_terms($post->ID, $taxon);
+
+    if(!empty($terms) && $exclude) {
+
+        if(is_int($exclude)) {
+            $exclude = array($exclude);
+        } elseif(is_string($exclude)) {
+            $exclude = explode(',', $exclude);
+        }
+
+        foreach($terms as $k => $v) {
+            if(in_array($v->term_id, $exclude)) {
+                unset($terms[$k]);
+            }
+        }
+
+    }
+
     $output = '';
-    if($terms) {
+
+    if(!empty($terms)) {
         $output .= $before;
         $list = array();
         foreach($terms as $term) {
@@ -124,7 +145,9 @@ function z_taxon(
         $output .= implode($sep, $list);
         $output .= $after;
     }
+
     return $output;
+
 }
 
 /**
