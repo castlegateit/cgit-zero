@@ -243,3 +243,21 @@ function z_comment($comment, $args, $depth) {
     echo $output;
 
 }
+
+/**
+ * Add user guide
+ */
+function z_user_guide_page() {
+    include TEMPLATEPATH . '/user-guide.php';
+}
+function z_user_guide() {
+    add_menu_page(
+        'User Guide',
+        'User Guide',
+        'edit_pages',
+        'z-user-guide',
+        'z_user_guide_page'
+    );
+}
+
+add_action('admin_menu', 'z_user_guide');
