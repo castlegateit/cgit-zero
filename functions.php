@@ -32,6 +32,11 @@ remove_action('wp_head', 'wp_generator');
 //remove_action('wp_footer', 'wp_print_footer_scripts');
 
 /**
+ * Include standard ACF fields
+ */
+include_once TEMPLATEPATH . '/acf.php';
+
+/**
  * Add support for visual editor styles with editor-style.css
  */
 add_editor_style();
