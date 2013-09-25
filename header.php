@@ -37,7 +37,7 @@
     }
 
 ?>" />
-<?php /* <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> */ ?>
+<?php /* <meta name="viewport" content="width=device-width, initial-scale=1" /> */ ?>
 
 <?php /* <link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/style.css" /> */ ?>
 <?php /* <link rel="alternate" type="application/atom+xml" href="<?php bloginfo('atom_url'); ?>" title="Atom Feed" /> */ ?>
