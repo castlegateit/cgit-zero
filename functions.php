@@ -241,7 +241,7 @@ function z_comment($comment, $args, $depth) {
     $output = "<li class=\"$class_name\" id=\"comment-$id\">";
     $output .= "<h3>$author on <a href=\"$link\">$date at $time</a></h3>";
     if($comment->comment_approved) {
-        $output .= get_comment_text();
+        $output .= apply_filters( 'comment_text', get_comment_text() );
     } else {
         $output .= '<p>Your comment is awaiting moderation.</p>';
     }
