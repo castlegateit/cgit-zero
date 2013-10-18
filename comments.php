@@ -58,20 +58,24 @@
     // If comments open, print form
     if(comments_open()):
 
+        $commenter = wp_get_current_commenter();
+        $req = get_option( 'require_name_email' ) ? ' (required)' : '';
+
         // Fields
         $fields = array(
-            'author' => '<p><label for="author">Name'
-                . ($req ? ' (required)' : '') . '</label>'
+
+            'author' => '<p><label for="author">Name' . $req . '</label>'
                 . '<input type="text" name="author" id="author" value="'
                 . $commenter['comment_author'] . '" /></p>',
-            'email' => '<p><label for="email">Email'
-                . ($req ? ' (required)' : '') . '</label>'
+
+            'email' => '<p><label for="email">Email' . $req . '</label>'
                 . '<input type="text" name="email" id="email" value="'
                 . $commenter['comment_author_email'] . '" /></p>',
-            'url' => '<p><label for="url">Website'
-                . ($req ? ' (required)' : '') . '</label>'
+
+            'url' => '<p><label for="url">Website</label>'
                 . '<input type="text" name="url" id="url" value="'
                 . $commenter['comment_author_url'] . '" /></p>'
+
         );
 
         // Message field
@@ -86,15 +90,12 @@
          */
         comment_form(
             array(
-                'fields' => $fields,
+                'fields' => apply_filters( 'comment_form_default_fields', $fields ),
                 'comment_field' => $message,
-                'comment_notes_before' => '',
-                'comment_notes_after' => '',
-                'id_form' => 'comment-form',
-                'title_reply' => 'Leave a comment',
+                'title_reply' => 'Leave a reply',
                 'title_reply_to' => 'Leave a reply to %s',
                 'cancel_reply_link' => 'Cancel reply',
-                'label_submit' => 'Submit Comment'
+                'label_submit' => 'Post Comment'
             )
         );
 
