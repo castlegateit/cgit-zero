@@ -244,24 +244,24 @@ if(!empty($_POST)) {
 
             <p>
                 <label for="username" class="label-text">Name</label>
-                <input type="text" name="username" id="username" value="<?php echo $username; ?>" class="input-text required <?php echo z_input_valid('username'); ?>" />
+                <input type="text" name="username" id="username" value="<?php echo htmlspecialchars($username); ?>" class="input-text required <?php echo z_input_valid('username'); ?>" />
                 <?php echo z_error_message('username'); ?>
             </p>
 
             <p>
                 <label for="email" class="label-text">Email</label>
-                <input type="text" name="email" id="email" value="<?php echo $email; ?>" class="input-text required email <?php echo z_input_valid('email'); ?>" />
+                <input type="text" name="email" id="email" value="<?php echo htmlspecialchars($email); ?>" class="input-text required email <?php echo z_input_valid('email'); ?>" />
                 <?php echo z_error_message('email'); ?>
             </p>
 
             <p>
                 <label for="subject" class="label-text">Subject</label>
-                <input type="text" name="subject" id="subject" value="<?php echo $subject; ?>" class="input-text" />
+                <input type="text" name="subject" id="subject" value="<?php echo htmlspecialchars($subject); ?>" class="input-text" />
             </p>
 
             <p>
                 <label for="message" class="label-text">Message</label>
-                <textarea name="message" id="message" class="input-text required <?php echo z_input_valid('message'); ?>"><?php echo $message; ?></textarea>
+                <textarea name="message" id="message" class="input-text required <?php echo z_input_valid('message'); ?>"><?php echo htmlspecialchars($message); ?></textarea>
                 <?php echo z_error_message('message'); ?>
             </p>
 
