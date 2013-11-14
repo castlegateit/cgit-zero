@@ -30,6 +30,12 @@ define('EMAIL_FROM', 'sender@example.com');
 define('EMAIL_SUBJECT', 'Website Enquiry');
 //define('EMAIL_LOG', $_SERVER['DOCUMENT_ROOT'] . '/../log/contact.csv');
 
+
+$blocked_ips = array(
+    '31.184.238.52'         // bot attack to rfwp.com from 12-14/11/2013
+);
+
+
 /**
  * Contact form fields
  *
@@ -137,6 +143,14 @@ if(!empty($_POST)) {
         || !preg_match('/^[^@]+@[^@.]+\.[^@]*\w\w$/', $email)
     ) {
         $error['email'] = 'invalid email address';
+    } else {
+        // Verify domain is valid
+        list($addr,$domain) = explode('@', $email);
+        $domain .= '.';
+        
+        if (!checkdnsrr($domain, 'MX') && !checkdnsrr($domain, 'A')) {
+            $error['email'] = 'invalid email address';
+        }
     }
 
     // Check message
@@ -172,7 +186,7 @@ if(!empty($_POST)) {
         'document.cookie',
         'document.write'
     );
-    if(preg_match('/' . implode('|', $filter) . '/i', implode('', $_POST))) {
+    if (preg_match('/' . implode('|', $filter) . '/i', implode('', $_POST)) || in_array($_SERVER['REMOTE_ADDR'], $blocked_ips) ) {
         $error['spam'] = 'spam';
     }
 
@@ -235,7 +249,10 @@ if(!empty($_POST)) {
 <?php else: ?>
 
 <?php if(array_key_exists('spam', $error)): ?>
-        <p class="error">Your message appears to be spam. Please remove any links and try again.</p>
+        <p class="error">
+            Your message appears to be spam, or you are submitting the form from an IP address known to be a source of spam. Please remove any links before 
+            trying again.
+        </p>
 <?php elseif(count($error)): ?>
         <p class="error">Some fields contain errors. Please correct them and try again.</p>
 <?php endif; ?>
