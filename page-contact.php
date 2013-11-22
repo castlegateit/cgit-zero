@@ -126,22 +126,22 @@ if(!empty($_POST)) {
 
     // Check name
     if(empty($username)) {
-        $error['username'] = 'required';
+        $error['username'] = 'This is a required field';
     }
 
     // Check email
     if(empty($email)) {
-        $error['email'] = 'required';
+        $error['email'] = 'This is a required field';
     } elseif(
         preg_match('/[\(\)\<\>\,\;\:\\\"\[\]]/', $email)
         || !preg_match('/^[^@]+@[^@.]+\.[^@]*\w\w$/', $email)
     ) {
-        $error['email'] = 'invalid email address';
+        $error['email'] = 'Please enter a valid email address';
     }
 
     // Check message
     if(empty($message)) {
-        $error['message'] = 'required';
+        $error['message'] = 'This is a required field';
     }
 
     /**
@@ -191,17 +191,23 @@ if(!empty($_POST)) {
         // Sender IP
         $sender = $_SERVER['REMOTE_ADDR'];
 
-        // Put message together and send
-        $email_body = "Name: $username\n\n";
-        $email_body .= "Email: $email\n\n";
-        $email_body .= "Subject: $subject\n\n";
-        $email_body .= "Message:\n\n$message";
-        $email_body .= "\n\nSender IP: $sender";
-        $email_headers = "From: $username  <$email>"; // alternatively EMAIL_FROM
+        // Assemble message body
+        $email_body = "Name: $username\n\n" .
+            "Email: $email\n\n" .
+            "Subject: $subject\n\n" .
+            "Message:\n\n$message\n\n" .
+            "Sender IP: $sender";
+
+        // Assemble message headers
+        $email_headers  = "From: $username  <$email>"; // alternatively EMAIL_FROM
         $email_headers .= EMAIL_CC != '' ? "\nCc:" . EMAIL_CC : '';
         $email_headers .= EMAIL_BCC != '' ? "\nBcc:" . EMAIL_BCC : '';
-        //$email_headers .= "\nMIME-Version: 1.0"; // HTML format
-        //$email_headers .= "\nContent-Type: text/html; charset=UTF-8"; // HTML format
+
+        // Send HTML email
+        // $email_headers .= "\nMIME-Version: 1.0";
+        // $email_headers .= "\nContent-Type: text/html; charset=UTF-8";
+
+        // Send message
         $email_result = mail(EMAIL_TO, EMAIL_SUBJECT, $email_body, $email_headers);
 
         // Write to log file
