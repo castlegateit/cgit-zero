@@ -168,27 +168,13 @@ if(!empty($_POST)) {
      * spam prevention method than the z_remove_headers() function defined
      * above.
      */
-    $filter = array(
-        'bcc:',
-        'cc:',
-        '%0ato:',
-        '\nto:',
-        'url:',
-        'url=',
-        'multipart',
-        'content-type',
-        '<a',
-        '&lt;a',
-        '<script',
-        '&lt;script',
-        'http:',
-        'https:',
-        'ftp:',
-        'www.',
-        'document.cookie',
-        'document.write'
-    );
-    if (preg_match('/' . implode('|', $filter) . '/i', implode('', $_POST)) || in_array($_SERVER['REMOTE_ADDR'], $blocked_ips) ) {
+    $filter = 'bcc:|cc:|%0ato:|\nto:|url:|url=|multipart|content-type|<a|' .
+        '&lt;a|<script|&lt;script|http:|https:|ftp:|www.|document.cookie|' .
+        'document.write';
+    if (
+        preg_match("/$filter/i", implode('', $_POST)) ||
+        in_array($_SERVER['REMOTE_ADDR'], $blocked_ips)
+    ) {
         $error['spam'] = 'spam';
     }
 
