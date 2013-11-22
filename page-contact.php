@@ -152,6 +152,7 @@ if(!empty($_POST)) {
         if (!checkdnsrr($domain, 'MX') && !checkdnsrr($domain, 'A')) {
             $error['email'] = 'Please enter a valid email address';
         }
+
     }
 
     // Check message
