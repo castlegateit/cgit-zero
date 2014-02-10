@@ -266,3 +266,13 @@ function z_user_guide() {
 }
 
 add_action('admin_menu', 'z_user_guide');
+
+/**
+ * Add stylized login
+ */
+
+function stylized_login() {
+    echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('stylesheet_directory') . '/style.css" />';
+}
+ 
+add_action('login_head', 'stylized_login');
