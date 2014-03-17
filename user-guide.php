@@ -83,5 +83,16 @@
     plain text’ button, usually found on the second row of buttons, it is the
     clipboard with the ‘T’ on it, which you can see in the screenshot
     below.</p>
+    
+<?php if ( function_exists('get_field') ): ?>    
+    <h3>Options Page</h3>
+    
+    <p>In the options page you will find a form to change your telephone number,
+    email address, registered company address, registered company number, 
+    country of registration and your VAT number.
+    </p>
+    
+    <p>Remember to click 'Save' after changing any options.</p>
+<?php endif; ?>
 
 </div>
