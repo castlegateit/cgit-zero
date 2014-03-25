@@ -16,6 +16,8 @@
 
 <head>
 
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
 <meta charset="<?php bloginfo('charset'); ?>" />
 
 <title><?php
