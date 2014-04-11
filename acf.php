@@ -202,7 +202,7 @@ if(function_exists("register_field_group"))
 		),
 		'options' => array (
 			'position' => 'normal',
-			'layout' => 'default',
+			'layout' => 'no_box',
 			'hide_on_screen' => array (
 			),
 		),
