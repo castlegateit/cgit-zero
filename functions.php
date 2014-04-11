@@ -270,9 +270,8 @@ add_action('admin_menu', 'z_user_guide');
 /**
  * Add stylized login
  */
-
-function stylized_login() {
-    echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('stylesheet_directory') . '/style.css" />';
+function z_login_style() {
+    echo '<link rel="stylesheet" href="' . get_bloginfo('stylesheet_directory') . '/login-style.css" />';
 }
  
-add_action('login_head', 'stylized_login');
+add_action('login_head', 'z_login_style');

@@ -1,0 +1,20 @@
+/**
+ * Login styles
+ *
+ * The logo should be 274 x 63px.
+ */
+
+.login h1 a {
+    background-image: url("images/wp-login.png");
+    background-size: 274px 63px;
+    height: 63px;
+    width: 274px;
+}
+
+#loginform {
+    border: 2px solid #066192;
+}
+
+.login label {
+    color: #066192;
+}

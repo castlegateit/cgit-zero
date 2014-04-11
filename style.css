@@ -13,9 +13,3 @@ License URI: http://www.opensource.org/licenses/MIT
 Copyright (c) 2012 John Hughes. All rights reserved.
 
 */
-
-/* Stylized Login
-Logo - best size: 274 x 63 */ 
-.login h1 a { background-image: url("images/wp-login.png"); background-size: 274px 63px; width: 274px; height: 63px; } 
-#loginform { border: 2px solid #066192;}
-.login label { color: #066192; }
