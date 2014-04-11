@@ -141,7 +141,7 @@ if(function_exists("register_field_group"))
 			),
 			array (
 				'key' => 'field_5284dcc26357c',
-				'label' => 'Registered Address',
+				'label' => 'Registered address',
 				'name' => 'registered_address',
 				'type' => 'textarea',
 				'required' => 0,
@@ -152,8 +152,8 @@ if(function_exists("register_field_group"))
 			),
 			array (
 				'key' => 'field_5284dd566a323',
-				'label' => 'Registered No.',
-				'name' => 'registered_no.',
+				'label' => 'Registered number',
+				'name' => 'registered_number',
 				'type' => 'number',
 				'required' => 0,
 				'default_value' => '',
@@ -166,8 +166,8 @@ if(function_exists("register_field_group"))
 			),
 			array (
 				'key' => 'field_5284dd6a6a324',
-				'label' => 'Registered in which country',
-				'name' => 'registered_in_which_country',
+				'label' => 'Registered country',
+				'name' => 'registered_country',
 				'type' => 'text',
 				'default_value' => '',
 				'placeholder' => '',

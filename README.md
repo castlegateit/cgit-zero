@@ -20,21 +20,28 @@ customizable [navigation menu](http://codex.wordpress.org/Navigation_Menus).
 These are provided as examples and can be extended or removed as required.
 
 ## ACF Options Page
-To use the options page in the Zero theme please install Advanced Custom Fields and the ACF Options Page.
-When both of these are installed then the options page will appear.
 
-The options page has the following fields, these are the names to use in your template:
-telephone 
-email
-address
-registered_address
-registered_no
-registered_in_which_country
-vat_number
+To use the options page in the Zero theme please install Advanced Custom Fields
+and the ACF Options Page. When both of these are installed then the options
+page will appear.
 
-These options are created in the acf.php file. These can be edited through this file, but will not display in the ACF interface.
+The options page has the following fields, these are the names to use in your
+template:
 
-To generate these fields, you create them in a WordPress site and use the 'Export' tool to 'Export to PHP', this generates code that you copy to the acf.php file.
+*   `telephone`
+*   `email`
+*   `address`
+*   `registered_address`
+*   `registered_number`
+*   `registered_country`
+*   `vat_number`
+
+These options are created in the `acf.php` file. These can be edited through
+this file, but will not display in the ACF interface.
+
+To generate these fields, you create them in a WordPress site and use the
+'Export' tool to 'Export to PHP', this generates code that you copy to the
+`acf.php` file.
 
 ## License
 
