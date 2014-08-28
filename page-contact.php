@@ -148,7 +148,7 @@ if(!empty($_POST)) {
         // Verify domain is valid
         list($addr,$domain) = explode('@', $email);
         $domain .= '.';
-        
+
         if (!checkdnsrr($domain, 'MX') && !checkdnsrr($domain, 'A')) {
             $error['email'] = 'Please enter a valid email address';
         }
@@ -214,9 +214,18 @@ if(!empty($_POST)) {
 
         // Write to log file
         if(defined('EMAIL_LOG') && function_exists('fputcsv')) {
+
+            $dir = dirname(EMAIL_LOG);
+
+            if ( ! file_exists($dir) ) {
+                mkdir($dir);
+            }
+
             $log = fopen(EMAIL_LOG, 'a');
             $row = array(date('Y-m-d H:i'), $username, $email, $subject, $message, $sender);
+
             fputcsv($log, $row);
+
         }
 
         // Completed
@@ -244,7 +253,7 @@ if(!empty($_POST)) {
 
 <?php if(array_key_exists('spam', $error)): ?>
         <p class="error">
-            Your message appears to be spam, or you are submitting the form from an IP address known to be a source of spam. Please remove any links before 
+            Your message appears to be spam, or you are submitting the form from an IP address known to be a source of spam. Please remove any links before
             trying again.
         </p>
 <?php elseif(count($error)): ?>
