@@ -1,5 +1,9 @@
 # Zero
 
+**Development of Castlegate IT fork of the Zero theme has now stopped. The theme has been replaced by [Terminus](https://github.com/castlegateit/terminus), which can be customized and extended using [child themes](https://github.com/castlegateit/terminus-child-template). Some of the functions provided by Zero can now be found in the [Contact Form](https://github.com/castlegateit/cgit-wp-contact-form), [Login Style](https://github.com/castlegateit/cgit-wp-login-style), [SEO](https://github.com/castlegateit/cgit-wp-cmb-seo), and [User Guide](https://github.com/castlegateit/cgit-wp-user-guide) plugins.**
+
+---
+
 Zero is a simple WordPress theme designed to act as a starting point for
 development and customization. It contains theme files for pages, posts, and
 archives but does not provide any style information.
